@@ -1,30 +1,31 @@
 import { useEffect, useRef, useState } from "react"
-import { Home, Building, Armchair, Trees } from "lucide-react"
+import { Home, Building, Zap, Wrench } from "lucide-react"
+import Icon from "@/components/ui/icon"
 import { HighlightedText } from "./HighlightedText"
 
 const expertiseAreas = [
   {
-    title: "Жилая архитектура",
-    description: "Создаем дома, которые сочетают красоту с комфортом, где каждое пространство служит и форме, и функции.",
-    icon: Home,
+    title: "Ремонт квартир под ключ",
+    description: "Полный цикл ремонтных работ: от демонтажа до финальной отделки. Берём на себя всё — вы въезжаете в готовое жильё.",
+    icon: "Home",
   },
   {
-    title: "Коммерческие объекты",
+    title: "Дизайн интерьера и планировка",
     description:
-      "Проектируем рабочие пространства, которые вдохновляют на продуктивность и отражают ценности передовых организаций.",
-    icon: Building,
+      "Разрабатываем индивидуальный дизайн-проект с учётом ваших пожеланий, образа жизни и бюджета. Каждое решение — функционально и эстетично.",
+    icon: "LayoutDashboard",
   },
   {
-    title: "Дизайн интерьеров",
+    title: "Отделка жилых и коммерческих помещений",
     description:
-      "Создаем интерьеры, которые гармонируют с архитектурной оболочкой, формируя целостный пространственный опыт.",
-    icon: Armchair,
+      "Квартиры, дома, офисы и магазины — работаем с любыми объектами. Используем только проверенные экологически чистые материалы.",
+    icon: "Building2",
   },
   {
-    title: "Градостроительство",
+    title: "Электромонтаж и сантехника",
     description:
-      "Формируем сообщества через продуманную интеграцию общественных пространств, зданий и природных элементов.",
-    icon: Trees,
+      "Квалифицированные специалисты выполнят все инженерные работы: электрику, сантехнику, вентиляцию. Надёжно, безопасно, с гарантией.",
+    icon: "Zap",
   },
 ]
 
@@ -64,13 +65,12 @@ export function Expertise() {
             практикой
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            Каждый проект опирается на десятилетия совокупного опыта, создавая архитектуру, которая одновременно инновационна и вневременна.
+            Более 10 лет мы воплощаем проекты любой сложности. Стоимость работ «под ключ» — от 15 000 руб./м².
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-x-12 gap-y-16">
           {expertiseAreas.map((area, index) => {
-            const Icon = area.icon
             return (
               <div
                 key={area.title}
@@ -91,7 +91,7 @@ export function Expertise() {
                     transitionDelay: `${index * 150}ms`,
                   }}
                 >
-                  <Icon className="w-10 h-10 mb-4 text-foreground" strokeWidth={1.25} />
+                  <Icon name={area.icon} className="w-10 h-10 mb-4 text-foreground" strokeWidth={1.25} />
                 </div>
                 <h3 className="text-xl font-medium mb-4">{area.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{area.description}</p>
