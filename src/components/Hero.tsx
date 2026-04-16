@@ -122,7 +122,7 @@ export function Hero() {
         <img
           src="/images/hously-background.png"
           alt="Минималистичный архитектурный интерьер"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-center mx-0"
         />
       </div>
 
