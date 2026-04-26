@@ -42,39 +42,17 @@ export function Footer() {
             <h4 className="text-sm font-medium mb-4">Связь</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li>
-                <a href="mailto:info@vikingremont.ru" className="hover:text-foreground transition-colors">
-                  info@vikingremont.ru
-                </a>
+                <span>vikingremspb@gmail.com</span>
               </li>
               <li>
-                <a href="tel:+74951234567" className="hover:text-foreground transition-colors">
-                  +7 (495) 123-45-67
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-foreground transition-colors">
-                  Телеграм
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-foreground transition-colors">
-                  ВКонтакте
-                </a>
+                <span>+7 (981) 935-85-31</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-border flex flex-col md:flex-row md:items-center justify-between gap-4 text-sm text-muted-foreground">
+        <div className="pt-8 border-t border-border text-sm text-muted-foreground">
           <p>© 2026 VikingRemont. Все права защищены.</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-foreground transition-colors">
-              Политика конфиденциальности
-            </a>
-            <a href="#" className="hover:text-foreground transition-colors">
-              Условия использования
-            </a>
-          </div>
         </div>
       </div>
     </footer>
