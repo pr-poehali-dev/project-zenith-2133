@@ -1,43 +1,44 @@
 import { useState, useEffect, useRef } from "react"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, X } from "lucide-react"
 
 const projects = [
   {
     id: 1,
-    title: "Квартира на Патриарших",
+    title: "Ванная комната",
     category: "Ремонт квартиры под ключ",
     location: "Москва",
     year: "2024",
-    image: "/images/hously-1.png",
+    image: "https://cdn.poehali.dev/files/6a3f5d04-0734-449d-afb2-97b55c3e8813.jpg",
   },
   {
     id: 2,
-    title: "Офис IT-компании",
-    category: "Коммерческое помещение",
+    title: "Кухня-гостиная",
+    category: "Ремонт квартиры под ключ",
     location: "Москва",
-    year: "2023",
-    image: "/images/hously-2.png",
+    year: "2024",
+    image: "https://cdn.poehali.dev/files/734691a8-6ea2-45d5-8e64-9fbac34d930b.jpg",
   },
   {
     id: 3,
-    title: "Загородный дом",
-    category: "Отделка жилого дома",
-    location: "Подмосковье",
+    title: "Прихожая",
+    category: "Отделка под ключ",
+    location: "Москва",
     year: "2023",
-    image: "/images/hously-3.png",
+    image: "https://cdn.poehali.dev/files/f79ebd73-3ad3-4f9c-ab41-15d90becf59a.jpg",
   },
   {
     id: 4,
-    title: "Пентхаус в центре",
+    title: "Кухня в классическом стиле",
     category: "Дизайн и ремонт под ключ",
     location: "Москва",
     year: "2024",
-    image: "/images/hously-4.png",
+    image: "https://cdn.poehali.dev/files/553646a2-0bcd-4b9c-8f30-9f65d9ad57d6.jpg",
   },
 ]
 
 export function Projects() {
   const [hoveredId, setHoveredId] = useState<number | null>(null)
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null)
   const [revealedImages, setRevealedImages] = useState<Set<number>>(new Set())
   const imageRefs = useRef<(HTMLDivElement | null)[]>([])
 
@@ -65,6 +66,22 @@ export function Projects() {
 
   return (
     <section id="projects" className="py-32 md:py-29 bg-secondary/50">
+      {lightboxImage && (
+        <div
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          onClick={() => setLightboxImage(null)}
+        >
+          <button className="absolute top-4 right-4 text-white" onClick={() => setLightboxImage(null)}>
+            <X className="w-8 h-8" />
+          </button>
+          <img
+            src={lightboxImage}
+            alt=""
+            className="max-w-full max-h-full object-contain rounded-lg"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
           <div>
@@ -88,7 +105,11 @@ export function Projects() {
               onMouseEnter={() => setHoveredId(project.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
-              <div ref={(el) => (imageRefs.current[index] = el)} className="relative overflow-hidden aspect-[4/3] mb-6">
+              <div
+                ref={(el) => (imageRefs.current[index] = el)}
+                className="relative overflow-hidden aspect-[4/3] mb-6"
+                onClick={() => setLightboxImage(project.image)}
+              >
                 <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
