@@ -27,7 +27,7 @@ export function CallToAction() {
             </div>
             <div className="flex items-center gap-3">
               <Icon name="Mail" size={22} className="text-orange-400 shrink-0" />
-              <span className="text-xl md:text-2xl font-bold text-white tracking-wide select-none">
+              <span className="text-base sm:text-xl md:text-2xl font-bold text-white tracking-wide select-none break-all">
                 vikingremspb@gmail.com
               </span>
             </div>
