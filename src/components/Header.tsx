@@ -56,9 +56,9 @@ export function Header() {
         </ul>
 
         <div className="hidden md:flex items-center gap-4">
-          <a href="tel:+79819358531" className="text-sm text-white/80 hover:text-white transition-colors">
+          <span className="text-sm font-bold text-white tracking-wide select-none">
             +7 (981) 935-85-31
-          </a>
+          </span>
           <a
             href="#contact"
             className={cn(
